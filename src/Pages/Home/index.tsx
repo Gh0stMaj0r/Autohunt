@@ -3,16 +3,18 @@ import { useEffect } from "react";
 import './Home.scss'
 
 import Navbar from "../../Components/Header";
+import Landing from "./elements/Landing";
 
 const Home = () => {
     useEffect(() => {
-        document.title = "Bmw Elite Motors";  
+        document.title = "Autohunt";  
         window.scrollTo(0,0);
     }, []);
 
     return (
         <main>
             <Navbar/>
+            <Landing/>
         </main>
     )
 }

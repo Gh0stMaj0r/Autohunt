@@ -1,9 +1,29 @@
-import React from "react";
+import {useState, useEffect} from "react";
 
 import './Header.scss'
 
 const Navbar = () => {
-    return (
+    const [theme, setTheme] = useState('light');
+
+    useEffect(() => {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            setTheme(currentTheme);
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
+
+    useEffect(() => {
+        // Set the data-theme attribute on the root element to apply the selected theme
+        document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
+    
+	return (
 		<header id="header" className="wrapper">
 			<div className="content header-content">
 				<img src='./Images/New-Logo.png' alt='Logo' id='logo'></img>
@@ -16,8 +36,8 @@ const Navbar = () => {
                     <a className='link' href='#yhteystiedot'>Contact</a>
 
 					<div className="switch">
-        				<label className="theme-switch" for={'checkbox'} >
-            				<input type="checkbox" id="checkbox" />
+        				<label className="theme-switch" htmlFor="checkbox">
+            				<input type="checkbox" id="checkbox" checked={theme === 'dark'} onChange={toggleTheme} />
             				<div className="slider round"></div>
         				</label>
     				</div>
