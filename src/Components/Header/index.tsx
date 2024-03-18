@@ -16,7 +16,7 @@ const Navbar = () => {
                     <a className='link' href='#yhteystiedot'>Contact</a>
 
 					<div className="switch">
-        				<label className="theme-switch">
+        				<label className="theme-switch" for={'checkbox'} >
             				<input type="checkbox" id="checkbox" />
             				<div className="slider round"></div>
         				</label>
