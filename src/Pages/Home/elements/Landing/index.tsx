@@ -12,8 +12,13 @@ const Landing = () => {
                     Whether you're on the hunt for your next set of wheels or ready to part ways with your current ride, 
                     AutoHunt is here to make the process seamless and stress-free.</p>
                 </div>
-                <div>
-                    <img className="image-landing" src="./Images/landing-bmw.png" alt="" />
+                <div className="button-group">
+                    <a>
+                        <button className="button">Shop Now!</button>
+                    </a>
+                    <a>
+                        <button className="button-nobcolor">Sell your Car</button>
+                    </a>
                 </div>
             </div>
         </section>

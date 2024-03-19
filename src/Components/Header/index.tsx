@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import './Header.scss'
 
 const Navbar = () => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
 
     useEffect(() => {
         const currentTheme = localStorage.getItem('theme');
@@ -13,7 +13,7 @@ const Navbar = () => {
     }, []);
 
     const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     };
@@ -37,7 +37,7 @@ const Navbar = () => {
 
 					<div className="switch">
         				<label className="theme-switch" htmlFor="checkbox">
-            				<input type="checkbox" id="checkbox" checked={theme === 'dark'} onChange={toggleTheme} />
+            				<input type="checkbox" id="checkbox" checked={theme === 'light'} onChange={toggleTheme} />
             				<div className="slider round"></div>
         				</label>
     				</div>

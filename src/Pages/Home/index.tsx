@@ -4,6 +4,8 @@ import './Home.scss'
 
 import Navbar from "../../Components/Header";
 import Landing from "./elements/Landing";
+import Brands from "./elements/CarBrands";
+import Services from "./elements/OurServices";
 
 const Home = () => {
     useEffect(() => {
@@ -15,6 +17,8 @@ const Home = () => {
         <main>
             <Navbar/>
             <Landing/>
+            <Brands/>
+            <Services/>
         </main>
     )
 }
