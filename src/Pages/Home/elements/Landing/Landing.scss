@@ -1,14 +1,46 @@
 #landing {
 	padding: 0;
 	width: 100vw;
-	height: 400px;
-	margin-top: 75px;
+	height: 500px;
+	margin-top: 65px;
 	overflow: hidden;
 	position: relative;
+	background-image: url(../../../../../public/Images/bmw-background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left;
     
     .content {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+		.landing-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 20px;
+
+			h1 {
+				font-size: 28px;
+				letter-spacing: 2px;
+			}
+
+			span {
+				color: #0011ff;
+			}
+	
+			p {
+				width: 40rem;
+				letter-spacing: 1px;
+			}
+		}
     }
+
+	.image-landing {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 40rem;
+	}
 }
