@@ -13,10 +13,10 @@ const Landing = () => {
                     AutoHunt is here to make the process seamless and stress-free.</p>
                 </div>
                 <div className="button-group">
-                    <a>
+                    <a href="#shopnow">
                         <button className="button">Shop Now!</button>
                     </a>
-                    <a>
+                    <a href="#sell">
                         <button className="button-nobcolor">Sell your Car</button>
                     </a>
                 </div>
