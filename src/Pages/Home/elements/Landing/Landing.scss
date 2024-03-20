@@ -45,21 +45,5 @@
 	.button-group {
 		display: flex;
 		gap: 30px;
-
-		.button {
-			padding: 10px;
-			border-radius: 6px;
-			border: none;
-			background-color: var(--contrast);
-			color: #fff;
-		}
-
-		.button-nobcolor {
-			padding: 8px;
-			border-radius: 6px;
-			border: 2px solid var(--contrast);
-			background-color: transparent;
-			color: #fff;
-		}
 	}
 }

@@ -32,7 +32,7 @@ const Recent: React.FC = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get<Car[]>('http://localhost:5000/api/new_cars', {
-        params: { limit: 4 }
+        params: { limit: 5},
       });
       setCars(response.data);
     } catch (error) {
@@ -45,19 +45,6 @@ const Recent: React.FC = () => {
       <div className="content">
         <h1>Recent Cars</h1>
         
-        <div className="car-list">
-          {new_cars.map((car) => (
-            <div className="car-card" key={car.id}>
-              <GiCarKey className='icon'/>
-              <h2>{car.brand}</h2>
-              <p><IoLogoModelS/> Model: {car.model}</p>
-              <p><TbEngine/> Engine: {car.engine}</p>
-              <p><TbManualGearbox/> Gearbox: {car.gearbox}</p>
-              <p><BsFillFuelPumpFill/> Fueltype: {car.fueltype}</p>
-            </div>
-            ))}
-        </div>
-
         <div className="car-list">
           {new_cars.map((car) => (
             <div className="car-card" key={car.id}>

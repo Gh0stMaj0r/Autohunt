@@ -23,9 +23,10 @@ app.use(express.json());
 
 // Fetch data from the database
 app.get('/api/new_cars', async (req, res) => {
+  const limit = req.query.limit || 10;
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM new_cars');
+    const result = await client.query('SELECT * FROM new_cars LIMIT $1', [limit]);
     res.json(result.rows);
     client.release();
   } catch (err) {

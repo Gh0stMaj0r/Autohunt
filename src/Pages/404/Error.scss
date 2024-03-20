@@ -1,0 +1,40 @@
+#error {
+    .content {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #error {
+            font-size: 180px;
+        }
+
+        p {
+            font-size: 60px;
+        }
+
+        span {
+            color: var(--contrast);
+        }
+
+        .error-reason {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            font-size: 24px;
+
+            .support-link {
+                text-decoration: none;
+                color: var(--font-color);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
