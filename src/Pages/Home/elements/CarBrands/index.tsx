@@ -15,7 +15,7 @@ import {
 
 const Brands = () => {
     return (
-        <section className="wrapper">
+        <section id="carbrands" className="wrapper">
             <div className="content">
                 <div className="brands">
                     <SiBmw/>

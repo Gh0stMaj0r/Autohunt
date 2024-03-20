@@ -29,11 +29,11 @@ const Navbar = () => {
 				<img src='./Images/New-Logo.png' alt='Logo' id='logo'></img>
 				{/* Tietokone Linkit */}
 				<div className="header-links">
-					<a className='link' href='#landing'>Home</a>
-					<a className='link' href='#palvelut'>Models</a>
-					<a className='link' href='#palvelut'>Sell your car</a>
-					<a className='link' href='#yhteystiedot'>News</a>
-                    <a className='link' href='#yhteystiedot'>Contact</a>
+					<a className='link' href='/home'>Home</a>
+					<a className='link' href='/models'>Models</a>
+					<a className='link' href='/sellyourcar'>Sell your car</a>
+					<a className='link' href='/news'>News</a>
+                    <a className='link' href='/contact'>Contact</a>
 
 					<div className="switch">
         				<label className="theme-switch" htmlFor="checkbox">
