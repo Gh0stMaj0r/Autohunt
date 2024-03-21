@@ -21,6 +21,7 @@
 				font-size: 28px;
 				letter-spacing: 2px;
 				transform: translate(0, -40px);
+				text-align: left;
 			}
 
 			span {
@@ -44,6 +45,7 @@
 
 	.button-group {
 		display: flex;
+		align-items: center;
 		gap: 30px;
 	}
 }

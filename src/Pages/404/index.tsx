@@ -7,7 +7,7 @@ import { TbError404 } from "react-icons/tb";
 
 const Error = () => {
     useEffect(() => {
-        document.title = "Autohunt - Unleash the speed";  
+        document.title = "Autohunt - 404 Page";  
         window.scrollTo(0,0);
     }, []);
 

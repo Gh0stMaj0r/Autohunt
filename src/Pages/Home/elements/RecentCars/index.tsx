@@ -3,10 +3,9 @@ import axios from 'axios';
 
 import './RecentCars.scss'
 
-import { IoLogoModelS } from "react-icons/io";
+import { IoLogoModelS, IoIosArrowForward } from "react-icons/io";
 import { TbEngine, TbManualGearbox } from "react-icons/tb";
 import { BsFillFuelPumpFill } from "react-icons/bs";
-import { GiCarKey } from "react-icons/gi";
 
 interface Car {
   id: number;
@@ -32,7 +31,7 @@ const Recent: React.FC = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get<Car[]>('http://localhost:5000/api/new_cars', {
-        params: { limit: 5},
+        params: { limit: 6},
       });
       setCars(response.data);
     } catch (error) {
@@ -48,12 +47,15 @@ const Recent: React.FC = () => {
         <div className="car-list">
           {new_cars.map((car) => (
             <div className="car-card" key={car.id}>
-              <GiCarKey className='icon'/>
+              <img className='icon' src="./Images/landing-bmw.png" alt="" />
               <h2>{car.brand}</h2>
               <p><IoLogoModelS/> Model: {car.model}</p>
               <p><TbEngine/> Engine: {car.engine}</p>
               <p><TbManualGearbox/> Gearbox: {car.gearbox}</p>
               <p><BsFillFuelPumpFill/> Fueltype: {car.fueltype}</p>
+              <div className="button-group">
+                <button className="button">More details <IoIosArrowForward/></button>
+              </div>
             </div>
             ))}
         </div>

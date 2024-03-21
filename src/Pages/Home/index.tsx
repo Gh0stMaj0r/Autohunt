@@ -6,7 +6,9 @@ import Navbar from "../../Components/Header";
 import Landing from "./elements/Landing";
 import Brands from "./elements/CarBrands";
 import Recent from "./elements/RecentCars";
+import AboutUs from "./elements/About";
 import Services from "./elements/OurServices";
+import Reviews from "./elements/CustomerReviews";
 
 const Home = () => {
     useEffect(() => {
@@ -20,7 +22,9 @@ const Home = () => {
             <Landing/>
             <Brands/>
             <Recent/>
+            <AboutUs/>
             <Services/>
+            <Reviews/>
         </main>
     )
 }
