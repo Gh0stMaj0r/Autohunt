@@ -36,7 +36,7 @@ const Services = () => {
                         rel="noreferrer noopener nofollow"
                         className="button"
                     >
-                        Read more
+                        Read more...
                     </button>
                 </div>
             );

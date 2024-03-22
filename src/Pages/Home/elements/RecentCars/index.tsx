@@ -18,11 +18,6 @@ interface Car {
 
 const Recent: React.FC = () => {
   const [new_cars, setCars] = useState<Car[]>([]);
-  const [brand, setBrand] = useState('');
-  const [model, setModel] = useState('');
-  const [engine, setEngine] = useState('');
-  const [gearbox, setGearbox] = useState('');
-  const [fueltype, setFueltype] = useState('');
 
   useEffect(() => {
     fetchData();

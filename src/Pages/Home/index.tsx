@@ -9,6 +9,8 @@ import Recent from "./elements/RecentCars";
 import AboutUs from "./elements/About";
 import Services from "./elements/OurServices";
 import Reviews from "./elements/CustomerReviews";
+import Contact from "./elements/Contact";
+import Footer from "../../Components/Footer";
 
 const Home = () => {
     useEffect(() => {
@@ -25,6 +27,8 @@ const Home = () => {
             <AboutUs/>
             <Services/>
             <Reviews/>
+            <Contact/>
+            <Footer/>
         </main>
     )
 }

@@ -2,21 +2,26 @@ import React from "react";
 
 import './About.scss'
 
+import { GiHomeGarage } from "react-icons/gi";
+import { IoCarSportSharp } from "react-icons/io5";
+import { FaUser, FaStar } from "react-icons/fa";
+
 const AboutUs = () => {
 
     interface AboutProps {
+        icon: any
         stats: string
         label: string
         id?: string
     }
 
     const About = (props: AboutProps) => {
-        const { stats, label, id } = props;
+        const { stats, icon, label, id } = props;
 
         return (
             <div className="stats-container" id={id}>
                 <span className="stats-name">
-                    <span>{stats} </span>
+                    <span>{icon} {stats} </span>
                 </span>
 
                 <hr></hr>
@@ -43,11 +48,13 @@ const AboutUs = () => {
 
                         <div className="stats-row">
                             <About
+                                icon= {<GiHomeGarage/>}
                                 stats="150"
                                 label="Vehicles in Stock"
                             />
 
                             <About
+                                icon= {<IoCarSportSharp/>}
                                 stats="40"
                                 label="Sold Vehicles"
                             />
@@ -55,11 +62,13 @@ const AboutUs = () => {
 
                         <div className="stats-row">
                             <About
+                                icon={<FaUser/>}
                                 stats="38"
                                 label="Happy customers"
                             />
 
                             <About
+                                icon={<FaStar/>}
                                 stats="4.8 / 5"
                                 label="Avarage Rating"
                             />
