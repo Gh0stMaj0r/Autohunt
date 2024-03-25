@@ -20,12 +20,15 @@
                     padding: 12px;
                     border: 2px solid var(--contrast);
                     background-color: #fff;
+                    border-radius: 6px;
                 }
 
                 textarea {
                     background-color: #fff;
                     border: 2px solid var(--contrast);
                     padding: 12px;
+                    border-radius: 6px;
+                    resize: vertical;
                 }
 
                 .button-form {
