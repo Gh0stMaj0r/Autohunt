@@ -1,0 +1,37 @@
+.preloader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+  
+  .car {
+    width: 50px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    animation: pulse 1s infinite alternate;
+  }
+  
+  .car::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }

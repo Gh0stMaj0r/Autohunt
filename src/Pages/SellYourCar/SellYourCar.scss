@@ -1,9 +1,19 @@
 #sellcar {
     margin-top: 65px;
 
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
     .intro {
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        p {
+            width: 700px;
+        }
     }
 }

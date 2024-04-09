@@ -1,6 +1,7 @@
 import React from "react";
 
 import './SellYourCar.scss'
+import CarSellingForm from "../../Components/CarSellingForm";
 
 const SellCar = () => {
     return (
@@ -12,6 +13,7 @@ const SellCar = () => {
                         Simply fill in the required details about your vehicle, and let us take care of the rest. 
                         Selling your car has never been easier. Start now and get one step closer to finding the perfect buyer for your vehicle!"</p>
                 </div>
+                <CarSellingForm/>
             </div>
         </section>
     )
