@@ -17,7 +17,7 @@ interface Car {
 }
 
 const Recent: React.FC = () => {
-  const [new_cars, setCars] = useState<Car[]>([]);
+  const [cars, setCars] = useState<Car[]>([]);
 
   useEffect(() => {
     fetchData();
@@ -25,7 +25,7 @@ const Recent: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get<Car[]>('http://localhost:5000/api/new_cars', {
+      const response = await axios.get<Car[]>('http://localhost:5000/api/cars', {
         params: { limit: 6},
       });
       setCars(response.data);
@@ -40,7 +40,7 @@ const Recent: React.FC = () => {
         <h1>Recent Cars</h1>
         
         <div className="car-list">
-          {new_cars.map((car) => (
+          {cars.map((car) => (
             <div className="car-card" key={car.id}>
               <img className='icon' src="./Images/landing-bmw.png" alt="" />
               <h2>{car.brand}</h2>
