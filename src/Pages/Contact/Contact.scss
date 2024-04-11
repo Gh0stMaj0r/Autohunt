@@ -1,14 +1,28 @@
 #contact {
+    margin-top: 65px;
 
     .content {
         display: flex;
         flex-direction: column;
-        gap: 60px;
+
+        .intro {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            p {
+                width: 700px;
+            }
+        }
 
         .contact-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            .maps {
+                border: 2px solid var(--contrast);
+            }
 
             form {
                 display: flex;

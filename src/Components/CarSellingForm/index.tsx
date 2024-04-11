@@ -21,6 +21,26 @@ const CarSellingForm: React.FC = () => {
         image: null as File | null,
     });
 
+    const clearForm = () => {
+        setFormData({
+          brand: '',
+          model: '',
+          year: 0,
+          mileage: 0,
+          engine: '',
+          gearbox: '',
+          fueltype: 'Gasoline',
+          condition: 'Excellent',
+          price: 0,
+          contactfName: '',
+          contactlName: '',
+          contactEmail: '',
+          contactPhone: '',
+          description: '',
+          image: null,
+        });
+      };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -45,13 +65,19 @@ const CarSellingForm: React.FC = () => {
             contactEmail: contactEmail,
             contactPhone: contactPhone,
           });
-          const userId = userResponse.data.id;
+          
+          const userId = userResponse.data.userId;
+
     
           // Make POST request to create car
           const carResponse = await axios.post('http://localhost:5000/api/cars', {
             ...carData,
             userId: userId,
           });
+
+          
+        // Clear the form fields after successful submission
+        clearForm();
     
           console.log(carResponse.data);
           // Optionally, redirect or show a success message

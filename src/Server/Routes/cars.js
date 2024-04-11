@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
+// Fecth all data from cars
 router.get('/', async (req, res) => {
     const limit = req.query.limit || 10;
     try {

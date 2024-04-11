@@ -26,9 +26,32 @@
       color: var(--header-color);
       text-decoration: none;
       padding: 10px;
+      cursor: pointer;
     }
 
-    .header-links a:hover {
+    .log-link {
+      text-align: center;
+      width: 60px;
+      color: var(--header-color);
+      text-decoration: none;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #005e99;
+      border-radius: 6px;
+    }
+
+    .reg-link {
+      text-align: center;
+      width: 60px;
+      color: var(--header-color);
+      text-decoration: none;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #005e99;
+      border-radius: 6px;
+    }
+
+    .header-links .link:hover {
       background-color: var(--contrast);
       border-radius: 6px;
       color: white;
