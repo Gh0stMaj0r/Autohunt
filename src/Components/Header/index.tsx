@@ -4,8 +4,6 @@ import './Header.scss'
 import Login from "./element/Login";
 import Register from "./element/Register";
 
-import { FaLock } from "react-icons/fa";
-import { FaUserPlus } from "react-icons/fa6";
 
 const Navbar = () => {
     const [theme, setTheme] = useState('dark');
@@ -28,17 +26,11 @@ const Navbar = () => {
         document.documentElement.setAttribute('data-theme', theme);
     }, [theme]);
 
-	const [isLoginActive, setIsLoginActive] = useState(false);
+	const [activeForm, setActiveForm] = useState('');
 
-	const toggleLoginForm = () => {
-		setIsLoginActive(!isLoginActive);
-	  };
-
-	const [isRegisterActive, setIsRegisterActive] = useState(false);
-
-	const toggleRegisterForm = () => {
-		setIsRegisterActive(!isRegisterActive);
-	  }  
+	const toggleForm = (form: string) => {
+	  setActiveForm(activeForm === form ? '' : form);
+	};
     
 	return (
 		<header id="header" className="wrapper">
@@ -51,12 +43,16 @@ const Navbar = () => {
 					<a className='link' href='/sellyourcar'>Sell your car</a>
 					<a className='link' href='/news'>News</a>
                     <a className='link' href='/contact'>Contact</a>
-					<a className='log-link link' onClick={toggleLoginForm}><FaLock/>
-						{isLoginActive && <Login isActive={isLoginActive} onClose={() => setIsLoginActive(false)} />}
-					</a>
-					<a className='reg-link link' onClick={toggleRegisterForm}><FaUserPlus/>
-						{isRegisterActive && <Register isActive={isRegisterActive} onClose={() => setIsRegisterActive(false)} />}
-					</a>
+
+					<a className={`log-link link ${activeForm === 'login' ? 'active' : ''}`} onClick={() => toggleForm('login')}>
+            			Login
+          			</a>
+          			{activeForm === 'login' && <Login isActive={true} onClose={() => setActiveForm('')} />}
+
+          			<a className={`reg-link link ${activeForm === 'register' ? 'active' : ''}`} onClick={() => toggleForm('register')}>
+            			Register
+          			</a>
+          			{activeForm === 'register' && <Register isActive={true} onClose={() => setActiveForm('')} />}
 
 					<div className="switch">
         				<label className="theme-switch" htmlFor="checkbox">

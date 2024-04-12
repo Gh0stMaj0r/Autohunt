@@ -1,5 +1,6 @@
-import React from 'react';
+import { useState } from "react";
 import './Login.scss'
+import Register from "../Register";
 
 import { IoMdClose } from "react-icons/io";
 
@@ -14,6 +15,12 @@ const Login: React.FC<LoginProps> = ({ isActive, onClose }) => {
     event.stopPropagation();
   };
 
+  const [isRegisterActive, setIsRegisterActive] = useState(false);
+
+	const toggleRegisterForm = () => {
+		setIsRegisterActive(!isRegisterActive);
+	  }
+
   return (
     <div className={`login-container ${isActive ? 'active' : ''}`} onClick={handleClickInsideLoginForm}>
       <a className="close-button" onClick={onClose}><IoMdClose /></a>
@@ -27,10 +34,15 @@ const Login: React.FC<LoginProps> = ({ isActive, onClose }) => {
 
         <div className="form-row">
                 <a href="">Forgot Your Password?</a>
-                <a href="">I Don't Have User</a>
         </div>
 
         <button className='log-button' type="submit">Login</button>
+
+        <div className="form-row">
+                <p>Don't have account <a onClick={toggleRegisterForm}>Register
+                  {isRegisterActive && <Register isActive={isRegisterActive} onClose={() => setIsRegisterActive(false)} />}
+                </a></p>
+        </div>
       </form>
     </div>
   );

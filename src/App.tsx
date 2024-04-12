@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './App.css';
 import './Scss/Colors.scss';
 //Components
 import Navbar from './Components/Header';
 import Footer from './Components/Footer';
+import Preloader from './Components/Preloader';
 
 import {
   BrowserRouter as Router,
@@ -18,14 +19,31 @@ import SellCar from './Pages/SellYourCar';
 import Contact from './Pages/Contact';
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading process
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
+    <div className="app">
+    {loading ? (
+      <Preloader />
+    ) : (
     <Router>
       <Navbar/>
       <Routes>
 
         <Route
         path="/"
-        element={<Home/>}/>
+        element={<Home/>}
+        />
 
         <Route
         path="/*"
@@ -42,6 +60,8 @@ function App() {
       </Routes>
       <Footer/>
     </Router>
+      )}
+    </div>
   );
 }
 
