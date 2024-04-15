@@ -16,6 +16,9 @@ import {
 import Home from './Pages/Home';
 import Error from './Pages/404';
 import SellCar from './Pages/SellYourCar';
+import News from './Pages/News';
+import NewsPage from './Pages/NewsArticle';
+import newsData, { NewsItem } from './Pages/News/NewsData';
 import Contact from './Pages/Contact';
 
 function App() {
@@ -52,6 +55,14 @@ function App() {
         <Route
         path="/sellyourcar"
         element={<SellCar/>}/>
+
+        <Route 
+        path="/news" 
+        element={<News news={newsData} />} />
+        
+        <Route 
+        path="/news/:id" 
+        element={<NewsPage news={newsData} />} />
 
         <Route
         path="/contact"

@@ -20,6 +20,7 @@ const Footer = () => {
                         <h3>Useful Links</h3>
                         <a>About Us</a>
                         <a>FAQ</a>
+                        <a>Customer Service</a>
                         <a>Contact</a>
                     </div>
 
@@ -31,8 +32,8 @@ const Footer = () => {
 
                     <div className="footer-column">
                         <h3>Location</h3>
-                        <a>Leland Avenue, Maryland</a>
-                        <a>21220, United States</a>
+                        <p>Leland Avenue, Maryland</p>
+                        <p>21220, United States</p>
                     </div>
 
                     <div className="footer-column">

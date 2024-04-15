@@ -29,23 +29,24 @@ const Contact = () => {
 
                 <div className="contact-info">
                 <div className="info-item">
-                    <h1>Contact Details</h1>
-                    <p>Email: example@example.com</p>
-                    <p>Phone: +1234567890</p>
-                    <p>Address: 123 Main Street, City, Country</p>
+                    <h2>Contact Details</h2>
+                    <p>selling@autohunt.com</p>
+                    <p>+1234567890</p>
+                    <p>Leland Avenue, Maryland,<br></br> 21220, United States
+                    </p>
                 </div>
                 <hr></hr>
                 <div className="info-item">
-                    <h1>Follow Us On:</h1>
+                    <h2>Follow Us On:</h2>
                     <div className="social">
-                        <a><FaFacebook/></a>
-                        <a><FaInstagram/></a>
-                        <a><FaYoutube/></a>
+                        <a href="https://www.facebook.com/"><FaFacebook/></a>
+                        <a href="https://www.instagram.com/"><FaInstagram/></a>
+                        <a href="https://www.youtube.com/"><FaYoutube/></a>
                     </div>
                 </div>
                 <hr></hr>
                 <div className="info-item">
-                    <h1>Business Hours</h1>
+                    <h2>Business Hours</h2>
                     <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
                     <p>Saturday - Sunday: Closed</p>
                 </div>
