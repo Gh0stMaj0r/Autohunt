@@ -29,8 +29,12 @@ const Navbar = () => {
 	const [activeForm, setActiveForm] = useState('');
 
 	const toggleForm = (form: string) => {
-	  setActiveForm(activeForm === form ? '' : form);
-	};
+		if (activeForm === form) {
+		  setActiveForm('');
+		} else {
+		  setActiveForm(form);
+		}
+	  };
     
 	return (
 		<header id="header" className="wrapper">
@@ -45,14 +49,14 @@ const Navbar = () => {
                     <a className='link' href='/contact'>Contact</a>
 
 					<a className={`log-link link ${activeForm === 'login' ? 'active' : ''}`} onClick={() => toggleForm('login')}>
-            			Login
-          			</a>
-          			{activeForm === 'login' && <Login isActive={true} onClose={() => setActiveForm('')} />}
+						Login
+					</a>
+          			{activeForm === 'login' && <Login isActive={true} onClose={() => setActiveForm('')} toggleForm={toggleForm} />}
 
           			<a className={`reg-link link ${activeForm === 'register' ? 'active' : ''}`} onClick={() => toggleForm('register')}>
-            			Register
-          			</a>
-          			{activeForm === 'register' && <Register isActive={true} onClose={() => setActiveForm('')} />}
+						Register
+					</a>
+          			{activeForm === 'register' && <Register isActive={true} onClose={() => setActiveForm('')} toggleForm={toggleForm} />}
 
 					<div className="switch">
         				<label className="theme-switch" htmlFor="checkbox">

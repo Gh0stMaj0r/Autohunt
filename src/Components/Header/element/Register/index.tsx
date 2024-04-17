@@ -7,9 +7,10 @@ import { IoMdClose } from "react-icons/io";
 interface RegisterProps {
   isActive: boolean;
   onClose: () => void;
+  toggleForm: (form: string) => void;
 }
 
-const Register: React.FC<RegisterProps> = ({ isActive, onClose }) => {
+const Register: React.FC<RegisterProps> = ({ isActive, onClose, toggleForm }) => {
   const handleClickInsideRegisterForm = (event: React.MouseEvent) => {
     // Prevent the click event from propagating to the parent element
     event.stopPropagation();
@@ -19,7 +20,8 @@ const Register: React.FC<RegisterProps> = ({ isActive, onClose }) => {
 
 	const toggleLoginForm = () => {
 		setIsLoginActive(!isLoginActive);
-	  };
+    toggleForm('login'); // Close the active form when login link is clicked
+	};
 
   return (
     <div className={`register-container ${isActive ? 'active' : ''}`} onClick={handleClickInsideRegisterForm}>
@@ -50,9 +52,7 @@ const Register: React.FC<RegisterProps> = ({ isActive, onClose }) => {
         <button className='reg-button' type="submit">Create User</button>
 
         <div className="form-row-reg">
-                <p>Already have an account? <a onClick={toggleLoginForm}>Login
-                {isLoginActive && <Login isActive={isLoginActive} onClose={() => setIsLoginActive(false)} />}
-                </a></p>
+          <p>Already have an account? <a onClick={toggleLoginForm}>Login</a></p>
         </div>
       </form>
     </div>

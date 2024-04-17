@@ -21,11 +21,17 @@ const NewsPage: React.FC<Props> = ({ news }) => {
         <div className="news-container content">
         <h2>{newsItem.title}</h2>
         <p>{newsItem.intro}</p>
-            <img src={newsItem.image} alt={newsItem.title} className="news-image" />
+            <img src={newsItem.image} alt={newsItem.title} loading='lazy' className="news-image" />
             <div className="news-details">
                 <p>Date: {newsItem.date}</p>
                 <p>Source: {newsItem.source}</p>
-                <p>{newsItem.content}</p>
+                {newsItem.content.split(/\n\s*\n/).map((paragraph, index) => (
+                <div key={index}>
+                    <p>{paragraph}</p>
+                    <br /> {/* Add additional space between paragraphs */}
+                </div>
+            ))}
+            <p>Written by: {newsItem.written}</p>
             </div>
         </div>
     </section>

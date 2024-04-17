@@ -20,7 +20,6 @@ const Footer = () => {
                         <h3>Useful Links</h3>
                         <a>About Us</a>
                         <a>FAQ</a>
-                        <a>Customer Service</a>
                         <a>Contact</a>
                     </div>
 

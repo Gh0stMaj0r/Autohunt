@@ -9,19 +9,30 @@ interface Props {
 }
 
 const News: React.FC<Props> = ({ news }) => {
+
+    // Sort the news items by date in descending order
+    const sortedNews = [...news].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
     return (
         <section id="news" className="wrapper">
         <div className="news-container content">
             <h2>Auto Industry News</h2>
-            {news.map(item => (
-                <div key={item.id} className="news-item">
+            {sortedNews.map(item => (
+                    <div key={item.id} className={`news-item ${new Date(item.date) > new Date() ? 'future' : ''}`}>
                     <div className="news-row">
-                    <img src={item.image} alt={item.title} className="news-image" />
+                    <img src={item.image} alt={item.title} loading='lazy' className="news-image" />
                     <div className="news-details">
                         <h3>{item.title}</h3>
                         <p>{item.date} - {item.source}</p>
                         <p>{item.intro}</p>
-                        <Link to={`/news/${item.id}`} className="read-more button">Read More</Link>
+                        {new Date(item.date) <= new Date() && (
+                            <>
+                                <Link to={`/news/${item.id}`} className="read-more button">Read More</Link>
+                            </>
+                        )}
+                            {new Date(item.date) > new Date() && (
+                            <p>Coming Soon!</p>
+                        )}
                     </div>
                 </div>
             </div>
