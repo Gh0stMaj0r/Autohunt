@@ -14,10 +14,25 @@
         }
     }
 
+    .intro {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        
+        p {
+            width: 700px;
+        }
+    }
+
     .news-item.future {
         position: relative;
         filter: blur(5px); /* Adjust blur intensity as needed */
       }
+
+      .coming-soon {
+        filter: none !important;
+        z-index: 999;
+    }
       
       .news-item.future:before {
         position: absolute;

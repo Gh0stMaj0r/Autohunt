@@ -16,7 +16,12 @@ const News: React.FC<Props> = ({ news }) => {
     return (
         <section id="news" className="wrapper">
         <div className="news-container content">
-            <h2>Auto Industry News</h2>
+            <div className="intro">
+                <h2>Auto Industry News</h2>
+                <p>Explore the latest news and updates from the auto industry. 
+                From groundbreaking innovations to industry insights, our news section covers it all. 
+                Stay informed and discover what's driving the future of mobility.</p>
+            </div>
             {sortedNews.map(item => (
                     <div key={item.id} className={`news-item ${new Date(item.date) > new Date() ? 'future' : ''}`}>
                     <div className="news-row">
@@ -31,7 +36,7 @@ const News: React.FC<Props> = ({ news }) => {
                             </>
                         )}
                             {new Date(item.date) > new Date() && (
-                            <p>Coming Soon!</p>
+                            <p className='coming-soon'>Coming Soon!</p>
                         )}
                     </div>
                 </div>
