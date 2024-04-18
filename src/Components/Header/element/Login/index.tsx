@@ -1,8 +1,9 @@
 import { useState } from "react";
 import './Login.scss'
-import Register from "../Register";
+import ForgotPassword from "../ForgotYourPassword";
 
 import { IoMdClose } from "react-icons/io";
+import { FaUser, FaLock } from "react-icons/fa";
 
 interface LoginProps {
   isActive: boolean;
@@ -17,11 +18,17 @@ const Login: React.FC<LoginProps> = ({ isActive, onClose, toggleForm }) => {
   };
 
   const [isRegisterActive, setIsRegisterActive] = useState(false);
+  const [isForgotPasswordActive, setIsForgotPasswordActive] = useState(false);
 
 	const toggleRegisterForm = () => {
 		setIsRegisterActive(!isRegisterActive);
     toggleForm('register'); // Close the active form when login link is clicked
 	};
+
+  const toggleForgotPasswordForm = () => {
+    setIsForgotPasswordActive(!isForgotPasswordActive);
+    toggleForm('forgotpassword'); // Toggle the visibility of the Forgot Password form
+  };
 
   return (
     <div className={`login-container ${isActive ? 'active' : ''}`} onClick={handleClickInsideLoginForm}>
@@ -29,14 +36,30 @@ const Login: React.FC<LoginProps> = ({ isActive, onClose, toggleForm }) => {
       <h2>Login</h2>
       <form>
         {/* Your login form inputs */}
-        <label htmlFor="username">Username:</label>
-        <input type="text" id='username' name='username' />
-        <label htmlFor="password">Password:</label>
-        <input type="password" id='password' name='password' />
+        <div className="input-column">
+          <label htmlFor="username">Username:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <FaUser className='input-icon'/>
+            </div>
+            <input type="text" id='username' name='username' autoComplete='off'/>
+          </div>
+        </div>
+
+        <div className="input-column">
+          <label htmlFor="password">Password:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <FaLock className='input-icon'/>
+            </div>
+            <input type="password" id='password' name='password' autoComplete='off'/>
+          </div>
+        </div>
 
         <div className="form-row">
-                <a href="">Forgot Your Password?</a>
+                <a onClick={toggleForgotPasswordForm}>Forgot Your Password?</a>
         </div>
+        {isForgotPasswordActive && <ForgotPassword isActive={true} onClose={() => setIsForgotPasswordActive(false)} toggleForm={toggleForm} />}
 
         <button className='log-button' type="submit">Login</button>
 

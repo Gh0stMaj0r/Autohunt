@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './Register.scss'
-import Login from '../Login';
 
 import { IoMdClose } from "react-icons/io";
+import { MdDriveFileRenameOutline, MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
+import { FaUser, FaLock } from "react-icons/fa";
 
 interface RegisterProps {
   isActive: boolean;
@@ -29,23 +31,77 @@ const Register: React.FC<RegisterProps> = ({ isActive, onClose, toggleForm }) =>
       <h2>Register</h2>
       <form>
         {/* Your login form inputs */}
-        <label htmlFor="username">Username:</label>
-        <input type="text" id='username' name='username' />
+        <div className="input-flex">
+          <div className='input-column'>
+            <label htmlFor="firstname">Firstname:</label>
+            <div className='input-row-icon'>
+              <div className="input-icon-content">
+                <MdDriveFileRenameOutline className='input-icon'/>
+              </div>
+              <input type="text" id='firstname' name='firstname' autoComplete='off' />
+            </div>
+          </div>
 
-        <label htmlFor="password">Password:</label>
-        <input type="text" id='password' name='password' />
+          <div className="input-column">
+            <label htmlFor="lastname">Lastname:</label>
+            <div className="input-row-icon">
+              <div className="input-icon-content">
+                <MdDriveFileRenameOutline className='input-icon'/>
+              </div>
+              <input type="text" id='lastname' name='lastname' autoComplete='off'/>
+            </div>
+          </div>
+        </div>
 
-        <label htmlFor="firstname">Firstname:</label>
-        <input type="text" id='firstname' name='firstname' />
+        <div className="input-column">
+          <label htmlFor="email">Email:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <MdEmail className='input-icon'/>
+            </div>
+            <input type="email" id='email' name='email' autoComplete='off'/>
+          </div>
+        </div>
 
-        <label htmlFor="lastname">Lastname:</label>
-        <input type="password" id='lastname' name='lastname' />
+        <div className="input-column">
+          <label htmlFor="phone">Phone:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <FaPhone className='input-icon'/>
+            </div>
+            <input type="tel" id='phone' name='phone' autoComplete='off'/>
+          </div>
+        </div>
 
-        <label htmlFor="email">Email:</label>
-        <input type="email" id='email' name='email' />
+        <div className="input-column">
+          <label htmlFor="username">Username:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <FaUser className='input-icon'/>
+            </div>
+            <input type="text" id='username' name='username' autoComplete='off'/>
+          </div>
+        </div>
 
-        <label htmlFor="phone">Phone:</label>
-        <input type="tel" id='phone' name='phone' />
+        <div className="input-column">
+          <label htmlFor="password">Password:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <FaLock className='input-icon'/>
+            </div>
+            <input type="password" id='password' name='password' autoComplete='off'/>
+          </div>
+        </div>
+
+        <div className="input-column">
+          <label htmlFor="password-confirm">Confirm Password:</label>
+          <div className="input-row-icon">
+            <div className="input-icon-content">
+              <FaLock className='input-icon'/>
+            </div>
+            <input type="password" id='password-confirm' name='password-confirm' autoComplete='off'/>
+          </div>
+        </div>
 
         <br></br>
 

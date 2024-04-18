@@ -26,12 +26,20 @@
 
     .news-item.future {
         position: relative;
-        filter: blur(5px); /* Adjust blur intensity as needed */
+
+        .news-image {
+            filter: blur(15px);
+        }
+
+        .news-details {
+            h3, p {
+                filter: blur(5px);
+            }
+        }
       }
 
       .coming-soon {
         filter: none !important;
-        z-index: 999;
     }
       
       .news-item.future:before {

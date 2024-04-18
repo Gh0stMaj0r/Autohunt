@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NewsItem } from './NewsData';
 
@@ -8,7 +8,17 @@ interface Props {
     news: NewsItem[];
 }
 
+const formatDate = (dateString: string) => {
+    const [year, month, day] = dateString.split('-');
+    return `${day}-${month}-${year}`;
+};
+
 const News: React.FC<Props> = ({ news }) => {
+
+    useEffect(() => {
+        document.title = "Autohunt - News";  
+        window.scrollTo(0,0);
+    }, []);
 
     // Sort the news items by date in descending order
     const sortedNews = [...news].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -17,7 +27,7 @@ const News: React.FC<Props> = ({ news }) => {
         <section id="news" className="wrapper">
         <div className="news-container content">
             <div className="intro">
-                <h2>Auto Industry News</h2>
+                <h1>Auto Industry News</h1>
                 <p>Explore the latest news and updates from the auto industry. 
                 From groundbreaking innovations to industry insights, our news section covers it all. 
                 Stay informed and discover what's driving the future of mobility.</p>
@@ -28,7 +38,7 @@ const News: React.FC<Props> = ({ news }) => {
                     <img src={item.image} alt={item.title} loading='lazy' className="news-image" />
                     <div className="news-details">
                         <h3>{item.title}</h3>
-                        <p>{item.date} - {item.source}</p>
+                        <p>{formatDate(item.date)} - {item.source}</p>
                         <p>{item.intro}</p>
                         {new Date(item.date) <= new Date() && (
                             <>
@@ -36,7 +46,9 @@ const News: React.FC<Props> = ({ news }) => {
                             </>
                         )}
                             {new Date(item.date) > new Date() && (
-                            <p className='coming-soon'>Coming Soon!</p>
+                            <>
+                                <p className='coming-soon button read-more'>Publish: {formatDate(item.date)}</p>
+                            </>
                         )}
                     </div>
                 </div>

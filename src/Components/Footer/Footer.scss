@@ -31,6 +31,15 @@
         flex-direction: column;
         gap: 20px;
 
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .social {
             display: flex;
             justify-content: space-evenly;

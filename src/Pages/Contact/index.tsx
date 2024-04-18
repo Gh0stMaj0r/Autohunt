@@ -1,9 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
 
 import './Contact.scss'
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Contact = () => {
+
+    useEffect(() => {
+        document.title = "Autohunt - Contact";  
+        window.scrollTo(0,0);
+    }, []);
+
     return (
         <section id="contact" className="wrapper">
             <div className="content">

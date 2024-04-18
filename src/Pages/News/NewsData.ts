@@ -182,7 +182,7 @@ const NewsData: NewsItem[] = [
                   the Velocity EVX stands poised to leave an indelible mark on the automotive landscape for 
                   generations to come.`,
 
-        date: '2024-04-18',
+        date: '2025-01-10',
 
         image: 'https://media.cnn.com/api/v1/images/stellar/prod/170531131011-electric-cars-2017-elextra.jpg?q=w_3840,h_2160,x_0,y_0,c_fill/h_778',
 

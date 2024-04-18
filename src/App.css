@@ -54,6 +54,7 @@ section {
 	background-color: var(--contrast);
 	color: #fff;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .button-nobcolor {

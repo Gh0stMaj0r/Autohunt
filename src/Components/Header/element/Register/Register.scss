@@ -13,6 +13,47 @@
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-flex {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .input-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .input-row-icon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #1d1c1c;
+      border: 2px solid var(--contrast);
+      border-radius: 5px;
+
+      .input-icon-content {
+        // background-color: none;
+        background-color: #2b2929;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        padding: 8px;
+      }
+
+      .input-icon {
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+  }
   
   .register-container.active {
     opacity: 1; /* Show the form when active */
@@ -29,14 +70,15 @@
   .register-container input[type="email"],
   .register-container input[type="tel"],
   .register-container button {
+    padding: 8px;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 2px solid var(--contrast);
-    border-radius: 5px;
+    padding: 0;
+    margin-bottom: 0;
     box-sizing: border-box;
-    background-color: #fff;
-    color: #1d1c1c;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: none;
   }
 
   .form-row-reg {
@@ -49,11 +91,14 @@
     a {
         text-decoration: underline;
         color: #fff;
+        cursor: pointer;
     }
   }
   
   .register-container .reg-button {
     background-color: #007bff;
+    padding: 8px;
+    border-radius: 5px;
     color: #fff;
     border: none;
     cursor: pointer;

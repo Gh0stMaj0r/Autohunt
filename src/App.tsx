@@ -20,6 +20,7 @@ import News from './Pages/News';
 import NewsPage from './Pages/NewsArticle';
 import newsData, { NewsItem } from './Pages/News/NewsData';
 import Contact from './Pages/Contact';
+import FAQ from './Pages/FAQ';
 
 function App() {
 
@@ -67,6 +68,10 @@ function App() {
         <Route
         path="/contact"
         element={<Contact/>}/>
+
+        <Route
+        path="/faq"
+        element={<FAQ/>}/>
 
       </Routes>
       <Footer/>

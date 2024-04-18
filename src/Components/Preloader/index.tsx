@@ -27,7 +27,7 @@ const Preloader: React.FC = () => {
       <img src="./Images/car-favicon-nobg.png" alt="Logo" className="logo" />
       <div className="progress-bar">
         <div className="progress" style={{ width: `${progress}%` }}></div>
-        <span className="percentage">{progress}%</span>
+        <span className="percentage">Loading {progress}%</span>
       </div>
     </div>
   );
