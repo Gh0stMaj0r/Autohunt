@@ -1,5 +1,6 @@
 #faq {
     margin-top: 65px;
+    margin-bottom: 155px;
 
     .content {
         display: flex;
@@ -7,7 +8,19 @@
         gap: 60px;
 
         .faq-container {
-            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .faq-navigation {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background-color: var(--bg-color2);
+            padding: 20px;
+            width: 200px;
+            height: 300px;
         }
         
         .faq-item {
@@ -15,6 +28,7 @@
         }
         
         .question {
+            width: 900px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -26,6 +40,7 @@
         }
         
         .answer {
+            width: 900px;
             display: block;
             padding: 20px;
             border-radius: 5px;

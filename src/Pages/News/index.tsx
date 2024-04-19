@@ -39,6 +39,11 @@ const News: React.FC<Props> = ({ news }) => {
                     <div className="news-details">
                         <h3>{item.title}</h3>
                         <p>{formatDate(item.date)} - {item.source}</p>
+                        <p>
+                            {item.tags.map((tag, index) => (
+                                <span key={index} className={`tag ${tag === 'primary' ? 'tag-primary' : ''}`}>{tag}</span>
+                            ))}
+                        </p>
                         <p>{item.intro}</p>
                         {new Date(item.date) <= new Date() && (
                             <>

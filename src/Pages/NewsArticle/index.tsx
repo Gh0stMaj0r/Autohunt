@@ -38,6 +38,11 @@ const NewsPage: React.FC<Props> = ({ news }) => {
         <p>{newsItem.intro}</p>
             <img src={newsItem.image} alt={newsItem.title} loading='lazy' className="news-image" />
             <div className="news-details">
+                <p>
+                    {newsItem.tags.map((tag, index) => (
+                    <span key={index} className={`tag ${tag === 'primary' ? 'tag-primary' : ''}`}>{tag}</span>
+                    ))}
+                </p>
                 <p>Published: {formatDate(newsItem.date)}</p>
                 <p>Source: {newsItem.source}</p>
                 {newsItem.content.split(/\n\s*\n/).map((paragraph, index) => (

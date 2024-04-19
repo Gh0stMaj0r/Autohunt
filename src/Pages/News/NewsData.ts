@@ -6,6 +6,7 @@ export interface NewsItem {
     date: string;
     image: string; // URL of the news image
     source: string;
+    tags: string[];
     written: string;
 }
 
@@ -41,6 +42,8 @@ const NewsData: NewsItem[] = [
         image: 'https://media.architecturaldigest.com/photos/5fb4008a3ec62d20cc008aa5/16:9/w_2560%2Cc_limit/lucid-air-exterior-09.jpg',
 
         source: 'Auto News Daily' ,
+        
+        tags: ['Electric Cars', 'New Models', 'Sustainable Mobility', 'Future Technology'],
 
         written: 'Autohunt Ltd.'
     },
@@ -79,6 +82,8 @@ const NewsData: NewsItem[] = [
         
         source: 'Automobile Today' ,
 
+        tags: ['Hybrid Cars', 'Sales Reports', 'Automotive Industry', 'Market Trends'],
+
         written: 'Autohunt Ltd.'
     },
 
@@ -108,6 +113,8 @@ const NewsData: NewsItem[] = [
         image: 'https://www.thomasnet.com/insights/_next/image/?url=https%3A%2F%2Fthomasmkt.wpengine.com%2Fwp-content%2Fuploads%2F2023%2F09%2Fe-truck.jpg&w=3840&q=75',
         
         source: 'Electric Vehicle Weekly' ,
+
+        tags: ['Electric Trucks', 'Battery Technology', 'Innovation', 'Commercial Vehicles'],
 
         written: 'Autohunt Ltd.'
     },
@@ -145,11 +152,13 @@ const NewsData: NewsItem[] = [
         
         source: 'Luxury Auto News' ,
 
+        tags: ['Luxury Cars', 'Subscription Service', 'Performance', 'Premium Experience'],
+
         written: 'Autohunt Ltd.'
     },
 
     {
-        id: 7,
+        id: 5,
 
         title: "Velocity Motors Unveils Limited Edition Electric Supercar",
 
@@ -187,6 +196,8 @@ const NewsData: NewsItem[] = [
         image: 'https://media.cnn.com/api/v1/images/stellar/prod/170531131011-electric-cars-2017-elextra.jpg?q=w_3840,h_2160,x_0,y_0,c_fill/h_778',
 
         source: 'Sports Car Gazette',
+
+        tags: ['Electric Supercar', 'Limited Edition', 'High Performance', 'Exclusive'],
 
         written: 'Autohunt Ltd.'
     },
