@@ -6,6 +6,7 @@ import './Scss/Colors.scss';
 import Navbar from './Components/Header';
 import Footer from './Components/Footer';
 import Preloader from './Components/Preloader';
+import Maintenance from './Components/Maintenance';
 
 import {
   BrowserRouter as Router,
@@ -15,6 +16,7 @@ import {
 
 import Home from './Pages/Home';
 import Error from './Pages/404';
+import Cars from './Pages/Cars';
 import SellCar from './Pages/SellYourCar';
 import News from './Pages/News';
 import NewsPage from './Pages/NewsArticle';
@@ -35,6 +37,10 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const currentPath = window.location.pathname;
+
+  const showPopup = currentPath === '/' || currentPath === '/';
+
   return (
     <div className="app">
     {loading ? (
@@ -52,6 +58,10 @@ function App() {
         <Route
         path="/*"
         element={<Error/>}/>
+
+        <Route
+        path="/cars"
+        element={<Cars/>}/>
 
         <Route
         path="/sellyourcar"
@@ -74,6 +84,7 @@ function App() {
         element={<FAQ/>}/>
 
       </Routes>
+      <Maintenance/>
       <Footer/>
     </Router>
       )}

@@ -1,0 +1,66 @@
+#scroll-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.left-icon,
+.right-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  padding: 0 10px;
+}
+
+#scroll-text {
+    flex-grow: 1;
+    color: #fff;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    /* animation properties */
+    /*-moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 15s linear infinite;*/
+
+    span {
+        color: red;
+    }
+  }
+  
+  /* for Firefox */
+  @-moz-keyframes my-animation {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(-100%); }
+  }
+  
+  /* for Chrome */
+  @-webkit-keyframes my-animation {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(-100%); }
+  }
+  
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    to {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }

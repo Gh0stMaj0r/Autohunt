@@ -16,7 +16,7 @@ const Landing = () => {
                     <a href="#shopnow">
                         <button className="button">Shop Now!</button>
                     </a>
-                    <a href="#sell">
+                    <a href="/sellyourcar">
                         <button className="button-nobcolor">Sell your Car</button>
                     </a>
                 </div>

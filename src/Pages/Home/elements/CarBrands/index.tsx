@@ -15,6 +15,7 @@ import {
 
 const Brands = () => {
     return (
+        <>
         <section id="carbrands" className="wrapper">
             <div className="content">
                 <div className="brands">
@@ -30,6 +31,7 @@ const Brands = () => {
                 <h2>- Sponsored By -</h2>
             </div>
         </section>
+        </>
     )
 }
 

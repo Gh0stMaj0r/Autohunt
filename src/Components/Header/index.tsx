@@ -43,7 +43,7 @@ const Navbar = () => {
 				{/* Tietokone Linkit */}
 				<div className="header-links">
 					<a className='link' href='/'>Home</a>
-					<a className='link' href='/models'>Models</a>
+					<a className='link' href='/cars'>Cars</a>
 					<a className='link' href='/sellyourcar'>Sell your car</a>
 					<a className='link' href='/news'>News</a>
                     <a className='link' href='/contact'>Contact</a>
