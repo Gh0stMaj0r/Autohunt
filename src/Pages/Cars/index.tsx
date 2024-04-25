@@ -3,21 +3,28 @@ import axios from 'axios';
 
 import './Cars.scss'
 
-import { IoLogoModelS, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+import { FaRoad } from "react-icons/fa6";
 import { TbEngine, TbManualGearbox } from "react-icons/tb";
-import { BsFillFuelPumpFill } from "react-icons/bs";
+import { BsFillFuelPumpFill, BsCalendar2DateFill } from "react-icons/bs";
 
 interface Car {
   id: number;
   brand: string;
   model: string;
   engine: string;
+  year: number;
+  mileage: number;
   gearbox: string;
   fueltype: string;
+  price: number;
+  userId: number;
+  contactfName: string;
+  contactlName: string;
 }
 
 const Cars: React.FC = () => {
-    const [cars, setCars] = useState<Car[]>([]);
+    const [cars, setCars] = useState<any>([]);
   
     useEffect(() => {
       fetchData();
@@ -25,13 +32,58 @@ const Cars: React.FC = () => {
   
     const fetchData = async () => {
       try {
-        const response = await axios.get<Car[]>('http://localhost:5000/api/cars', {
-          params: { limit: 6},
+        const carResponse = await axios.get('http://localhost:5000/api/cars', {
+          params: { limit: 6 },
         });
-        setCars(response.data);
+  
+        const carsData = carResponse.data;
+        console.log(carsData)
+
+        const userIds = carsData.map((car: any) => car.userid);
+        console.log(userIds);
+  
+        const userResponse = await axios.get('http://localhost:5000/api/users', {
+          params: { userIds: userIds.join(',') },
+        });
+  
+        const usersData = userResponse.data;
+  
+        const carsWithUserDetails = carsData.map((car: any) => {
+          const user = usersData.find((user: any) => user.id === car.userid);
+  
+          return {
+            ...car,
+            contactfName: user ? user.contactfName : '',
+            contactlName: user ? user.contactlName : '',
+          };
+        });
+        console.log('Cars with user details:', carsWithUserDetails);
+  
+        setCars(carsWithUserDetails);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
+    };
+  
+    useEffect(() => {
+      console.log(cars);
+    }, [cars]);
+
+    const calculateMonthlyInstallment = (price: number): number => {
+      // Assuming a fixed interest rate and loan term
+      const interestRate = 0.02; // 2% annual interest rate
+      const loanTermMonths = 60; // 3 years loan term (in months)
+    
+      // Calculate monthly interest rate
+      const monthlyInterestRate = interestRate / 12;
+    
+      // Calculate monthly installment using the formula for fixed monthly payments
+      const monthlyInstallment =
+        (price * monthlyInterestRate) /
+        (1 - Math.pow(1 + monthlyInterestRate, -loanTermMonths));
+    
+      // Round the result to two decimal places
+      return Math.round(monthlyInstallment * 100) / 100;
     };
 
     return (
@@ -41,17 +93,36 @@ const Cars: React.FC = () => {
           
           {/* Car List */}
           <div className="car-list">
-            {cars.map((car) => (
+            {cars.map((car: Car) => (
               <div className="car-card" key={car.id}>
-                <img className='icon' src="./Images/landing-bmw.png" alt="" />
-                <h2>{car.brand}</h2>
-                <p><IoLogoModelS/> Model: {car.model}</p>
-                <p><TbEngine/> Engine: {car.engine}</p>
-                <p><TbManualGearbox/> Gearbox: {car.gearbox}</p>
-                <p><BsFillFuelPumpFill/> Fueltype: {car.fueltype}</p>
-                <div className="button-group">
-                  <button className="button">More details <IoIosArrowForward/></button>
+                  <img className='icon' src="./Images/car-favicon-nobg.png" alt="" />
+                  <div className="car-details">
+                    <h2>{car.brand} {car.model}</h2>
+                    
+                    <div className="car-info">
+                        <p><TbEngine/> Engine: {car.engine}</p>
+                      </div>
+
+                      <div className="car-info">
+                        <p><TbManualGearbox/> Gearbox: {car.gearbox}</p>
+                        <p><BsFillFuelPumpFill/> Fueltype: {car.fueltype}</p>
+                      </div>
+
+                      <div className="car-info">
+                        <p><BsCalendar2DateFill /> Year: {car.year}</p>
+                        <p><FaRoad /> Mileage: {car.mileage} km</p>
+                      </div>
+
                 </div>
+                  <div className="seller">
+                    <h3>Seller</h3>
+                    <p>{car.contactfName} {car.contactlName}</p>
+                  </div>
+
+                  <div className="button-group">
+                  <p className='price'>{car.price}$ ({calculateMonthlyInstallment(car.price)}$/kk)</p>
+                      <button className="button">More details <IoIosArrowForward/></button>
+                  </div>
               </div>
               ))}
           </div>

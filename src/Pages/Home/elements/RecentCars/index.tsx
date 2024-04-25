@@ -42,7 +42,7 @@ const Recent: React.FC = () => {
         <div className="car-list">
           {cars.map((car) => (
             <div className="car-card" key={car.id}>
-              <img className='icon' src="./Images/landing-bmw.png" alt="" />
+              <img className='icon' src="./Images/car-favicon-nobg.png" alt="" />
               <h2>{car.brand}</h2>
               <p><IoLogoModelS/> Model: {car.model}</p>
               <p><TbEngine/> Engine: {car.engine}</p>

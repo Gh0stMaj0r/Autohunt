@@ -41,6 +41,9 @@ const CarSellingForm: React.FC = () => {
         });
       };
 
+      const [errorMessage, setErrorMessage] = useState('');
+      const [successMessage, setSuccessMessage] = useState('');
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -81,9 +84,11 @@ const CarSellingForm: React.FC = () => {
     
           console.log(carResponse.data);
           // Optionally, redirect or show a success message
+          setSuccessMessage('Form submitted successfully!');
         } catch (error) {
           console.error('Error:', error);
           // Handle error
+          setErrorMessage('Failed to submit form. Please try again later.');
         }
       };
 
@@ -173,6 +178,8 @@ const CarSellingForm: React.FC = () => {
                 </div>
 
                 <input type="submit" value="Submit" />
+                {errorMessage && <div className="error-message">{errorMessage}</div>}
+                {successMessage && <div className="success-message">{successMessage}</div>}
             </form>
         </div>
     );
