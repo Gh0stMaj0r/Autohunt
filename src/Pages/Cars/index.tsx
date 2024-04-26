@@ -18,56 +18,25 @@ interface Car {
   gearbox: string;
   fueltype: string;
   price: number;
-  userId: number;
-  contactfName: string;
-  contactlName: string;
 }
 
 const Cars: React.FC = () => {
-    const [cars, setCars] = useState<any>([]);
-  
-    useEffect(() => {
-      fetchData();
-    }, []);
-  
-    const fetchData = async () => {
-      try {
-        const carResponse = await axios.get('http://localhost:5000/api/cars', {
-          params: { limit: 6 },
-        });
-  
-        const carsData = carResponse.data;
-        console.log(carsData)
+  const [cars, setCars] = useState<Car[]>([]);
 
-        const userIds = carsData.map((car: any) => car.userid);
-        console.log(userIds);
-  
-        const userResponse = await axios.get('http://localhost:5000/api/users', {
-          params: { userIds: userIds.join(',') },
-        });
-  
-        const usersData = userResponse.data;
-  
-        const carsWithUserDetails = carsData.map((car: any) => {
-          const user = usersData.find((user: any) => user.id === car.userid);
-  
-          return {
-            ...car,
-            contactfName: user ? user.contactfName : '',
-            contactlName: user ? user.contactlName : '',
-          };
-        });
-        console.log('Cars with user details:', carsWithUserDetails);
-  
-        setCars(carsWithUserDetails);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    useEffect(() => {
-      console.log(cars);
-    }, [cars]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get<Car[]>('http://localhost:5000/api/cars', {
+        params: { limit: 6},
+      });
+      setCars(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
     const calculateMonthlyInstallment = (price: number): number => {
       // Assuming a fixed interest rate and loan term
@@ -93,7 +62,7 @@ const Cars: React.FC = () => {
           
           {/* Car List */}
           <div className="car-list">
-            {cars.map((car: Car) => (
+            {cars.map((car) => (
               <div className="car-card" key={car.id}>
                   <img className='icon' src="./Images/car-favicon-nobg.png" alt="" />
                   <div className="car-details">
@@ -114,11 +83,6 @@ const Cars: React.FC = () => {
                       </div>
 
                 </div>
-                  <div className="seller">
-                    <h3>Seller</h3>
-                    <p>{car.contactfName} {car.contactlName}</p>
-                  </div>
-
                   <div className="button-group">
                   <p className='price'>{car.price}$ ({calculateMonthlyInstallment(car.price)}$/kk)</p>
                       <button className="button">More details <IoIosArrowForward/></button>
