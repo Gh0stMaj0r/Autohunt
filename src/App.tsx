@@ -20,9 +20,9 @@ import Cars from './Pages/Cars';
 import SellCar from './Pages/SellYourCar';
 import News from './Pages/News';
 import NewsPage from './Pages/NewsArticle';
-import newsData, { NewsItem } from './Pages/News/NewsData';
+import newsData from './Pages/News/NewsData';
 import Contact from './Pages/Contact';
-import FAQ from './Pages/FAQ';
+import Faq from './Pages/FAQ';
 
 function App() {
 
@@ -36,10 +36,6 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  const currentPath = window.location.pathname;
-
-  const showPopup = currentPath === '/' || currentPath === '/';
 
   return (
     <div className="app">
@@ -81,7 +77,7 @@ function App() {
 
         <Route
         path="/faq"
-        element={<FAQ/>}/>
+        element={<Faq/>}/>
 
       </Routes>
       <Maintenance/>
